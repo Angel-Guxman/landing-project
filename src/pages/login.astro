@@ -107,6 +107,10 @@ import Layout from "../layouts/Layout.astro";
     let respuesta:any = "error"
     try {
       respuesta = login(email, password);
+     const user=JSON.parse(localStorage.getItem("user") || "{}");
+     if(user){
+      window.location.href = "/dashboard";
+     }
     } catch (error) {
       console.log(error)
       alert("Credenciales invalidas")

@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import Modal from "./Modal"; // Asegúrate de que la ruta esté correcta
+import Modal from "./Modal";
 
 const FormWithCaptcha = () => {
   const [formData, setFormData] = useState({

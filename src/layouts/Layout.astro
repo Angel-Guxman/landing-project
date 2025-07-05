@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import "../styles/global.css";
 ---
 <!doctype html>
 <html lang="en">
@@ -15,6 +16,18 @@ import "../styles/global.css";
 	<body class=" bg-gradient-to-br from-zinc-900 via-gray-900 to-zinc-900">
 		<slot />
 		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+		  <!-- Optional plugins -->
+		  <script is:inline src="./assets/vendor/jquery/dist/jquery.min.js"></script>
+		  <script is:inline src="./assets/vendor/lodash/lodash.js"></script>
+		  <script is:inline src="./assets/vendor/datatables.net/js/dataTables.min.js"
+		  ></script>
+		  <script is:inline src="./assets/vendor/dropzone/dist/dropzone-min.js"></script>
+		  <script is:inline src="./assets/vendor/nouislider/dist/nouislider.min.js"
+		  ></script>
+		  <script is:inline src="./assets/vendor/vanilla-calendar-pro/index.js"></script>
+		
+		  <!-- Preline UI -->
+		  <script is:inline src="./assets/vendor/preline/dist/index.js"></script>
 	</body>
 </html>
 <style is:global>

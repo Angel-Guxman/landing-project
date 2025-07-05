@@ -98,7 +98,7 @@ import Layout from "../layouts/Layout.astro";
 <script>
   import { login } from "../functions/authFunctions";
 
-  function loginHelper(event: any) {
+  async function loginHelper(event: any) {
     event.preventDefault();
 
     const email = document.querySelector<any>("#email").value;
@@ -106,8 +106,8 @@ import Layout from "../layouts/Layout.astro";
     const remember = document.querySelector<any>("#remember").checked;
     let respuesta:any = "error"
     try {
-      respuesta = login(email, password);
-     const user=JSON.parse(localStorage.getItem("user") || "{}");
+      respuesta = await login(email, password);
+     const user=JSON.parse(localStorage.getItem("user"));
      if(user){
       window.location.href = "/dashboard";
      }

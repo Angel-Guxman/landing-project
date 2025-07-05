@@ -64,13 +64,14 @@ export async function refreshToken(
 }
 
 export async function logout(
-  accessToken: string
+  accessToken: string | any
 ): Promise<{ error?: any }> {
   try {
+    
+    clearAuthData();
     await apiRequest("auth.logout", {}, null, {
       headers: { Authorization: `Bearer ${accessToken}` },
     });
-    clearAuthData();
     return {};
   } catch (error: any) {
     return { error: error.response?.data || error.message };

@@ -9,6 +9,7 @@ export const storage = {
     localStorage.removeItem(key);
   },
   clearAll: () => {
+    console.log("Borrando")
     localStorage.removeItem("accessToken");
     localStorage.removeItem("refreshToken");
     localStorage.removeItem("user");

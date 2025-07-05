@@ -56,6 +56,7 @@ const FormWithCaptcha = () => {
       );
 
       if (res.ok) {
+        // resetear tu form, captcha, etc.
         setFormData({
           nombre: "",
           correo: "",
@@ -66,6 +67,21 @@ const FormWithCaptcha = () => {
         });
         recaptchaRef.current?.reset();
         setSuccess(true);
+        await fetch(import.meta.env.PUBLIC_DISCORD, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            content: `**Nuevo mensaje recibido**\n
+            **Nombre:** ${formData.nombre}
+            **Correo:** ${formData.correo}
+            **Teléfono:** ${formData.telefono}
+            **Edad:** ${formData.edad}
+            **Asunto:** ${formData.asunto}
+            **Mensaje:** ${formData.descripcion}`
+          }),
+        });
       } else {
         setError("Hubo un error al enviar el formulario.");
       }
@@ -96,8 +112,8 @@ const FormWithCaptcha = () => {
                 field === "correo"
                   ? "email"
                   : field === "edad" || field === "telefono"
-                  ? "number"
-                  : "text"
+                    ? "number"
+                    : "text"
               }
               id={field}
               name={field}
